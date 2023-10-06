@@ -8,7 +8,7 @@ import { CategoryScale } from 'chart.js';
 import { ChartData, ChartOptions, ChartDataset } from 'chart.js';
 
 // Chart Structure & Utils
-import { structure, utils } from "../utils/chart";
+import { structure, utils } from "../utils";
 
 /**
  * @developer `Dev Youssef`
