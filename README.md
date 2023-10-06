@@ -2,6 +2,17 @@
 
 The `useChart` hook is a custom React hook that can be used to control chart data, options, gradients, etc. It is based on the Chart.js library, so you can use all of the features of Chart.js with this hook.
 
+### Installation
+
+```shell
+npm install chart.js react-chartjs-2 -D
+```
+
+### documentations
+
+- **react-chartjs-2** [https://react-chartjs-2.js.org/](https://react-chartjs-2.js.org/)
+- **chart.js** [https://www.chartjs.org/](https://www.chartjs.org/)
+
 ### Usage
 
 To use the hook, simply import it into your component and call it as a function. It will return an object with the following properties:
@@ -25,6 +36,7 @@ Here is an example of how to use the hook:
 
 ```javascript
 import useChart from "./useChart";
+import { Line } from "react-chartjs-2";
 
 const ChartComponent = () => {
   const {
@@ -70,16 +82,9 @@ const ChartComponent = () => {
     },
   });
 
-  // Create a chart.
-  const chart = new Chart(document.getElementById("myChart"), {
-    type: "line",
-    data,
-    options,
-  });
-
   return (
     <div>
-      <canvas id="myChart"></canvas>
+      <Line data={data} options={options} />
     </div>
   );
 };
