@@ -27,8 +27,22 @@ Here is an example of how to use the hook:
 import useChart from "./useChart";
 
 const ChartComponent = () => {
-  const { createDataObject, createOptionsObject, createDatasetObject } =
-    useChart();
+  const {
+    createDataObject,
+    createOptionsObject,
+    createDatasetObject,
+    createDatasetsArray,
+  } = useChart();
+
+  // Create a chart dataset object.
+  const dataset1 = createDatasetObject({
+    label: "My Dataset",
+    data: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120],
+    backgroundColor: "#FF0000",
+  });
+
+  // Create datasets array.
+  const datasets = createDatasetsArray([dataset1]);
 
   // Create a chart data object.
   const data = createDataObject({
@@ -46,12 +60,7 @@ const ChartComponent = () => {
       "Nov",
       "Dec",
     ],
-    datasets: [
-      {
-        label: "My Dataset",
-        data: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120],
-      },
-    ],
+    datasets: datasets,
   });
 
   // Create a chart options object.
@@ -59,11 +68,6 @@ const ChartComponent = () => {
     title: {
       text: "My Chart",
     },
-  });
-
-  // Create a chart dataset object.
-  const dataset = createDatasetObject({
-    backgroundColor: "#FF0000",
   });
 
   // Create a chart.
